@@ -10,9 +10,18 @@
 
 
 	//TODO FUNCTION COMMENT
+/***
+ * Purpose: Break and put the input string into an array of strings, tokenize it, then store it in the cmd struct
+ * Input: the string "input"
+ *	 	  the struct "cmd" where the end result string is stored
+ * Return: True/False
+ ***/
+
 bool parse_user_input (const char* input, Commands_t** cmd) {
 	
 	//TODO ERROR CHECK INCOMING PARAMETERS
+	check(input,"input is null");	
+	check(cmd,"cmd is null");	
 
 	char *string = strdup(input);
 	
@@ -37,6 +46,11 @@ bool parse_user_input (const char* input, Commands_t** cmd) {
 }
 
 	//TODO FUNCTION COMMENT
+/***
+ * Purpose: Free any cmds that were allocated in the command array
+ * Input: 
+ * Return: void
+ ***/
 void destroy_commands(Commands_t** cmd) {
 
 	//TODO ERROR CHECK INCOMING PARAMETERS
