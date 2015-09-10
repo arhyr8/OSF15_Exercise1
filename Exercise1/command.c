@@ -20,8 +20,14 @@
 bool parse_user_input (const char* input, Commands_t** cmd) {
 	
 	//TODO ERROR CHECK INCOMING PARAMETERS
-	check(input,"input is null");	
-	check(cmd,"cmd is null");	
+	if(!input || strcmp(input, "\n") == 0){
+		printf("\nInvalid input");
+		return false;
+	}
+	if(!(cmd)){
+		printf("\ncmd allocation error");
+		return false;
+	}
 
 	char *string = strdup(input);
 	
@@ -48,12 +54,17 @@ bool parse_user_input (const char* input, Commands_t** cmd) {
 	//TODO FUNCTION COMMENT
 /***
  * Purpose: Free any cmds that were allocated in the command array
- * Input: 
+ * Input: The array of commands
  * Return: void
  ***/
 void destroy_commands(Commands_t** cmd) {
 
 	//TODO ERROR CHECK INCOMING PARAMETERS
+	if(!(*cmd) || !cmd)
+	{
+		printf("\nCommands not found. Nothing destroyed");
+		return;
+	}	
 	
 	for (int i = 0; i < (*cmd)->num_cmds; ++i) {
 		free((*cmd)->cmds[i]);
