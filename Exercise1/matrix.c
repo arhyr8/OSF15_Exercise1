@@ -448,7 +448,7 @@ bool write_matrix (const char* matrix_output_filename, Matrix_t* m) {
 		printf("Matrix does not exist\n");
 		return false;
 	}
-	if(!(*m)->data){
+	if(!(m)->data){
 		printf("Not enough space in matrix to store data\n");
 		return false;
 	}
