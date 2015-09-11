@@ -34,8 +34,15 @@ int main (int argc, char **argv) {
 	memset(&mats,0, sizeof(Matrix_t*) * 10); // IMPORTANT C FUNCTION TO LEARN
 
 	Matrix_t *temp = NULL;
-	check(create_matrix (&temp,"temp_mat", 5, 5),"could not create matrix"); // TODO ERROR CHECK
-	check(add_matrix_to_array(mats,temp, 10),"could not add matrix to array"); //TODO ERROR CHECK NEEDED
+	if (!create_matrix (&temp,"temp_mat", 5, 5)){
+		printf("Error during init. Terminating\n");
+		return -1;
+	} // ERROR CHECK
+	if (!add_matrix_to_array(mats,temp, 10)){
+		printf("Could not add matrix to array\n");
+		destroy_remaining_heap_allocations(mats,10);
+		return -1;
+	} // ERROR CHECK 
 	int mat_idx = find_matrix_given_name(mats,10,"temp_mat");
 
 	if (mat_idx < 0) {
@@ -43,7 +50,9 @@ int main (int argc, char **argv) {
 		return -1;
 	}
 	random_matrix(mats[mat_idx], 10, 15);
-	check(write_matrix("temp_mat", mats[mat_idx]),"could not write matrix"); // TODO ERROR CHECK
+	if (!write_matrix("temp_mat", mats[mat_idx])){
+		printf("Matrix did not write to file");
+	} //  ERROR CHECK
 
 	line = readline("> ");
 	while (strncmp(line,"exit", strlen("exit")  + 1) != 0) {
