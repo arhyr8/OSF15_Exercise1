@@ -15,11 +15,11 @@ void run_commands (Commands_t* cmd, Matrix_t** mats, unsigned int num_mats);
 unsigned int find_matrix_given_name (Matrix_t** mats, unsigned int num_mats, 
 			const char* target);
 
-// TODO complete the defintion of this function. 
+//  complete the defintion of this function. 
 
 void destroy_remaining_heap_allocations(Matrix_t **mats, unsigned int num_mats);
 
-	//TODO FUNCTION COMMENT
+	// FUNCTION COMMENT
 /***
 * Purpose: Add a temporary matrix to the array of matrices. 
 * Input: No inputs
@@ -66,7 +66,7 @@ int main (int argc, char **argv) {
 	return 0;	
 }
 
-	//TODO FUNCTION COMMENT
+	// FUNCTION COMMENT
 /***
 * Purpose: Analyze and run the commands from the cmd array
 * Input: The array of commands,
@@ -75,7 +75,7 @@ int main (int argc, char **argv) {
 * Return: void
 ***/
 void run_commands (Commands_t* cmd, Matrix_t** mats, unsigned int num_mats) {
-	//TODO ERROR CHECK INCOMING PARAMETERS
+	// ERROR CHECK INCOMING PARAMETERS
 	if(!cmd || !(cmd)->cmds){
 		printf("No commands found!\n");
 		return;
@@ -237,7 +237,7 @@ void run_commands (Commands_t* cmd, Matrix_t** mats, unsigned int num_mats) {
 
 }
 
-	//TODO FUNCTION COMMENT
+	// FUNCTION COMMENT
 /***
 * Purpose: Finds the name of a matrix based upon the user input
 * Input: The array of matrices,
@@ -268,7 +268,7 @@ unsigned int find_matrix_given_name (Matrix_t** mats, unsigned int num_mats, con
 	return -1;
 }
 
-	//TODO FUNCTION COMMENT
+	// FUNCTION COMMENT
 /***
 * Purpose: Destroys any remaining matrices
 * Input: The array of matrices,

@@ -9,7 +9,7 @@
 #define MAX_CMD_LEN 25
 
 
-	//TODO FUNCTION COMMENT
+	// FUNCTION COMMENT
 /***
  * Purpose: Break and put the input string into an array of strings, tokenize it, then store it in the cmd struct
  * Input: the string "input"
@@ -19,7 +19,7 @@
 
 bool parse_user_input (const char* input, Commands_t** cmd) {
 	
-	//TODO ERROR CHECK INCOMING PARAMETERS
+	// ERROR CHECK INCOMING PARAMETERS
 	if(!input || strcmp(input, "\n") == 0){
 		printf("\nInvalid input");
 		return false;
@@ -51,7 +51,7 @@ bool parse_user_input (const char* input, Commands_t** cmd) {
 	return true;
 }
 
-	//TODO FUNCTION COMMENT
+	// FUNCTION COMMENT
 /***
  * Purpose: Free any cmds that were allocated in the command array
  * Input: The array of commands
@@ -59,9 +59,8 @@ bool parse_user_input (const char* input, Commands_t** cmd) {
  ***/
 void destroy_commands(Commands_t** cmd) {
 
-	//TODO ERROR CHECK INCOMING PARAMETERS
-	if(!(*cmd) || !cmd)
-	{
+	// ERROR CHECK INCOMING PARAMETERS
+	if(!(*cmd) || !cmd){
 		printf("\nCommands not found. Nothing destroyed");
 		return;
 	}	
